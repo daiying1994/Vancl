@@ -1,0 +1,13 @@
+html,body{height:100%;background:#f5f5f5;}
+.box{overflow:hidden;}
+.box img.logo{margin:50px auto 0;display:block;}
+.box p a{font:18px/64px "";color:#333;}
+.box  a.active{color:#e8380d;}
+.box p span{display:inline-block;height:18px;margin:0 7px}
+.box input{display:block;border:0;outline:none;width:358px;height:48px;border:1px solid #e0e4e7;margin:20px auto;text-indent:10px;}
+.box input.btn{background:#e8380d;font:18px/48px "";color:#fff}
+.box .other{text-align:center;font:12px/28px "";color:#666;}
+.box .other a{display:inline-block;width:158px;height:30px;}
+
+.box{width:850px;height:470px;background:#fff;margin:50px auto;}
+p{font:10px/20px "";color:#ccc;text-align:center;}

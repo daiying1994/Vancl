@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>注册</title>
+    <link rel="stylesheet" href="css/public.css">
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+    <div class="box">
+        <img src="index-img/logo3.png" alt="" class="logo">
+        <input type="text" placeholder="请输入手机号码" autocomplete="off" id="user">
+        <input type="password" placeholder="密码为6-16个字符" autocomplete="off" id="pass">
+        <input type="text" value="请输验证码"><span></span>
+        <input type="button" class="btn" id="btn" value="注册">
+        <span style="display:block;text-align:center;"></span>
+        <div class="other">
+            <span><a href="login.html" style="color:red">已有账号，直接登录</a></span>
+        </div>
+        
+    </div>
+    <p>Cqianfdjfd 2007 - 2009 vackd.com  粤ICP备10006213号  ICP精英许可证编号：凡客诚品(北京)科技有限公司 298365</p>
+</body>
+<script>
+    class Register{
+        constructor(){
+            this.user = document.getElementById("user");
+            this.pass = document.getElementById("pass");
+            this.btn = document.getElementById("btn");
+            this.span = document.querySelector("span");
+            this.init();
+            this.getData()
+        }
+        init(){
+        var that = this;
+        this.btn.onclick = function(){
+            that.setData();
+            }
+        }
+        getData(){
+            this.abc = localStorage.getItem("abc")
+            if(this.abc == null){
+                this.abc = []
+            }else{
+                this.abc = JSON.parse(this.abc)
+            }
+        }
+        setData(){
+            if(this.abc.length == 0){
+                this.abc.push({
+                    user:this.user.value,
+                    pass:this.pass.value,
+                    onoff:0
+                })
+                this.span.innerHTML = "注册成功";
+                localStorage.setItem("abc",JSON.stringify(this.abc))
+            }else{
+                for(var i = 0;i<this.setData.length;i++){
+                    if(this.abc[i].user === this.user.value){
+                        this.span.innerHTML = "名字已占用";
+                        return;
+                    }
+                }
+                this.abc.push({
+                    user:this.user.value,
+                    pass:this.pass.value,
+                    onoff:0
+                })
+                this.span.innerHTML = "注册成功";
+                localStorage.setItem("abc",JSON.stringify(this.abc))
+            }
+        }
+    }
+    new Register();
+    
+</script>
+</html>
